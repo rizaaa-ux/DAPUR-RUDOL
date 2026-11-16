@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff5b35">
+  <title>RasaNusa — Jelajah Kuliner Nusantara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">🇮🇩 Satu negeri, seribu rasa — rayakan kekayaan kuliner Indonesia!</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="RasaNusa beranda">
+      <span class="brand-mark">🍲</span><span>Rasa<span class="brand-accent">Nusa</span></span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#menu">Jelajahi Menu</a><a href="#cerita">Cerita Rasa</a><a href="#footer">Tentang Kami</a>
+    </nav>
+    <button class="cart-button" id="openCart" aria-label="Buka keranjang">
+      <span>🛒</span> Keranjang <b id="cartCount">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">✦ PETUALANGAN RASA INDONESIA</span>
+        <h1>Rasa daerah,<br><span>dekat di meja.</span></h1>
+        <p>Temukan hidangan autentik dari Sabang sampai Merauke. Kenali asalnya, nikmati ceritanya, lalu pesan favoritmu.</p>
+        <a class="primary-button" href="#menu">Jelajahi makanan <span>↗</span></a>
+        <div class="hero-note"><span class="note-icon">🌶️</span><span><b>20+ hidangan pilihan</b><small>Dari berbagai penjuru Nusantara</small></span></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="hero-food">🍛</div>
+        <span class="float-tag tag-top">Kaya rempah ✨</span>
+        <span class="float-tag tag-bottom">100% cita rasa lokal</span>
+        <span class="spark spark-one">✳</span><span class="spark spark-two">✦</span>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Keunggulan RasaNusa">
+      <div><strong>🌏 17.000+</strong><span>Pulau Indonesia</span></div>
+      <div><strong>🍽️ 20+</strong><span>Menu pilihan</span></div>
+      <div><strong>❤️ 100%</strong><span>Cinta kuliner lokal</span></div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div><span class="eyebrow">PILIHAN HARI INI</span><h2>Jelajahi <span>kelezatan.</span></h2>
+        <p>Dari makanan berat hingga kudapan manis, ada cerita di setiap suapan.</p></div>
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari makanan atau daerah..." aria-label="Cari menu"></div>
+      </div>
+      <div class="category-row" id="categoryFilters">
+        <button class="category-chip active" data-category="Semua">✨ Semua</button>
+        <button class="category-chip" data-category="Makanan Berat">🍛 Makanan berat</button>
+        <button class="category-chip" data-category="Kudapan">🥟 Kudapan</button>
+        <button class="category-chip" data-category="Manis">🍮 Manis</button>
+        <button class="category-chip" data-category="Minuman">🥤 Minuman</button>
+      </div>
+      <div class="results-line"><span id="resultCount">Menampilkan semua menu</span><span>Harga dalam Rupiah · Pilihan dapat berubah</span></div>
+      <div class="menu-grid" id="menuGrid"></div>
+      <div class="empty-state hidden" id="emptyState">🍃 Tidak ada menu yang cocok. Coba kata kunci lain.</div>
+    </section>
+
+    <section class="story-section" id="cerita">
+      <div class="story-emoji">🧭</div>
+      <div><span class="eyebrow">LEBIH DARI SEKADAR MAKANAN</span><h2>Setiap daerah punya <span>cerita rasa.</span></h2>
+      <p>Resep Nusantara tumbuh dari alam, tradisi, dan kebiasaan masyarakat setempat. RasaNusa mengajakmu mengenal bahan utama dan daerah asal setiap hidangan, bukan hanya menikmatinya.</p></div>
+      <a href="#menu" class="text-link">Temukan ceritanya ↗</a>
+    </section>
+  </main>
+
+  <footer id="footer"><a class="brand footer-brand" href="#"><span class="brand-mark">🍲</span><span>Rasa<span class="brand-accent">Nusa</span></span></a><p>Merawat rasa, merayakan budaya Indonesia.</p><small>© 2026 RasaNusa · Demo website pemesanan kuliner Nusantara</small></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang belanja" aria-hidden="true">
+    <div class="drawer-header"><div><span class="eyebrow">PESANANMU</span><h3>Keranjang <span>🛍️</span></h3></div><button class="icon-button" id="closeCart" aria-label="Tutup">✕</button></div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty">🧺<b>Keranjang masih kosong</b><span>Yuk, pilih makanan favoritmu!</span></div></div>
+    <div class="cart-summary"><div><span>Subtotal</span><b id="subtotal">Rp0</b></div><div><span>Biaya layanan</span><b id="serviceFee">Rp0</b></div><div class="total-row"><span>Total</span><strong id="grandTotal">Rp0</strong></div><button class="primary-button checkout-button" id="checkoutButton" disabled>Lanjut ke pembayaran <span>→</span></button><small>Biaya layanan demo: Rp2.000 per pesanan</small></div>
+  </aside>
+
+  <section class="modal-wrap" id="detailModal" aria-hidden="true">
+    <div class="modal detail-modal">
+      <button class="icon-button modal-close" data-close="detailModal" aria-label="Tutup">✕</button>
+      <div class="detail-visual" id="detailVisual">🍛</div>
+      <div class="detail-content"><span class="eyebrow" id="detailCategory">MAKANAN</span><h3 id="detailName">Nama makanan</h3><p class="detail-origin" id="detailOrigin"></p><p id="detailDescription"></p><div class="ingredient-box"><b>🥬 Komposisi utama</b><p id="detailIngredients"></p></div><div class="detail-bottom"><strong id="detailPrice"></strong><button class="primary-button" id="detailAdd">Tambah ke keranjang +</button></div></div>
+    </div>
+  </section>
+
+  <section class="modal-wrap" id="checkoutModal" aria-hidden="true">
+    <div class="modal checkout-modal">
+      <button class="icon-button modal-close" data-close="checkoutModal" aria-label="Tutup">✕</button>
+      <span class="eyebrow">TINGGAL SELANGKAH LAGI</span><h3>Selesaikan <span>pesananmu.</span></h3>
+      <form id="checkoutForm">
+        <label>Nama penerima<input name="customerName" required placeholder="Nama lengkap"></label>
+        <label>Nomor WhatsApp<input name="phone" required inputmode="tel" pattern="[0-9+ -]{9,16}" placeholder="08xxxxxxxxxx"></label>
+        <label>Alamat pengantaran<textarea name="address" required rows="3" placeholder="Nama jalan, nomor rumah, kecamatan..."></textarea></label>
+        <fieldset><legend>Metode pembayaran</legend>
+          <label class="payment-option"><input type="radio" name="payment" value="Transfer bank" checked><span>🏦</span><span><b>Transfer bank</b><small>Simulasi transfer virtual</small></span></label>
+          <label class="payment-option"><input type="radio" name="payment" value="E-Wallet"><span>📱</span><span><b>E-Wallet</b><small>Simulasi dompet digital</small></span></label>
+          <label class="payment-option"><input type="radio" name="payment" value="COD"><span>💵</span><span><b>Bayar di tempat (COD)</b><small>Bayar saat pesanan tiba</small></span></label>
+        </fieldset>
+        <div class="checkout-total"><span>Total pembayaran</span><strong id="checkoutTotal">Rp0</strong></div>
+        <p class="demo-warning">ℹ️ Ini simulasi untuk demonstrasi. Tidak ada uang yang ditagihkan dan tidak ada transaksi sungguhan.</p>
+        <button class="primary-button submit-order" type="submit">Buat pesanan demo <span>✓</span></button>
+      </form>
+    </div>
+  </section>
+
+  <section class="modal-wrap" id="successModal" aria-hidden="true">
+    <div class="modal success-modal"><div class="success-icon">🎉</div><span class="eyebrow">PESANAN TERCATAT</span><h3>Terima kasih!</h3><p id="successMessage">Pesanan demo berhasil dibuat.</p><div class="order-code" id="orderCode"></div><button class="primary-button" id="finishOrder">Kembali menjelajah</button></div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
